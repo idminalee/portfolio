@@ -52,6 +52,7 @@ const StyledButton = styled.button`
   font-family: ${FONT_SECONDARY};
   font-size: ${FONT_16};
   font-weight: 600;
+  line-height: 1;
   border-radius: 4px;
   transition: all ease-in-out 300ms;
 
