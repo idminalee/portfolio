@@ -1,5 +1,6 @@
 import React from 'react'
 import { IconContext } from 'react-icons'
+import Header from './components/Header'
 import GlobalStyles from './components/styles/GlobalStyles'
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <IconContext.Provider value={{ className: 'icon' }}>
-        <h1>Portfolio</h1>
+        <Header />
       </IconContext.Provider>
     </>
   )
