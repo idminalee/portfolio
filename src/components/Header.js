@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
+import Nav from './Nav'
 import * as colour from './styles/constants/colours'
 import { displayFlex } from './styles/mixins/flexbox'
 
@@ -19,6 +20,7 @@ const Header = () => {
   return (
     <HeaderStyles>
       <Logo>min-a</Logo>
+      <Nav />
     </HeaderStyles>
   )
 }
