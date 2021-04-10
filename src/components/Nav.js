@@ -50,7 +50,7 @@ const Nav = () => {
         </li>
         <li>
           <IconContainer>
-            <button type="button">
+            <button type="button" style={{ paddingTop: '4px' }}>
               <FaMoon className="dimmed" size="20" />
             </button>
           </IconContainer>
