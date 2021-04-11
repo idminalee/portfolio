@@ -7,12 +7,6 @@ export const IconContainer = styled.div`
   width: 32px;
   height: 32px;
 
-  a,
-  button {
-    width: 100%;
-    height: 100%;
-  }
-
   .icon {
     color: ${colour.BLUE};
     transition: color ease-in-out 200ms;
