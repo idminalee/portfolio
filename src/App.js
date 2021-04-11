@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Main from './components/Main'
+import Footer from './components/Footer'
 import GlobalStyles from './components/styles/GlobalStyles'
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Header />
         <Hero />
         <Main />
+        <Footer />
       </IconContext.Provider>
     </>
   )
