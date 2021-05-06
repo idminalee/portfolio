@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaMoon, FaBars } from 'react-icons/fa'
-import { PRIMARY } from './styles/constants/colours'
-import { FONT_16, FONT_SECONDARY } from './styles/constants/typography'
+import { FaMoon, FaBars, FaTimes } from 'react-icons/fa'
+import * as colour from './styles/constants/colours'
+import { FONT_16, FONT_30, FONT_SECONDARY } from './styles/constants/typography'
 import { displayFlex } from './styles/mixins/flexbox'
 import { IconContainer } from './styles/IconStyles'
 import Button from './Button'
-import { useState } from 'react'
 
 const NavListStyles = styled.ul`
   ${displayFlex('inline-flex')};
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: height 0.3s ease-out;
+  }
+  &.open {
+    ${displayFlex()};
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: unset;
+    background-color: ${colour.BACKGROUND};
+  }
 
   li {
     margin-right: 40px;
@@ -19,96 +39,105 @@ const NavListStyles = styled.ul`
       font-family: ${FONT_SECONDARY};
       font-size: ${FONT_16};
       font-weight: 500;
-      color: ${PRIMARY};
+      color: ${colour.PRIMARY};
       text-transform: uppercase;
+
+      @media screen and (max-width: 768px) {
+        font-size: ${FONT_30};
+        font-weight: 700;
+        color: ${colour.BLUE};
+
+        &:hover {
+          color: ${colour.BLUE_DARK};
+        }
+      }
+    }
+  }
+
+  .btn-link {
+    @media screen and (max-width: 768px) {
+      padding: 0 28px;
+      font-size: 28px;
     }
   }
 
   li:last-child {
     margin-right: 0;
-  }
 
-  li:not(:last-child) {
+    // TODO: 리스트에서 빼서 메뉴버튼 옆에 배치하기
     @media screen and (max-width: 768px) {
       display: none !important;
     }
   }
 
-  .sideNav {
-    display: none;
-    padding-top: 4px;
-    margin-right: 12px;
-
+  li:not(:last-child) {
     @media screen and (max-width: 768px) {
-      display: inline-block;
+      margin-bottom: 32px;
     }
   }
 `
 
-const SideNavStyles = styled.nav`
+const MenuButton = styled.span`
   display: none;
+  padding-top: 4px;
+  margin-right: 12px;
 
-  width: 0;
-  height: 0;
-  background-color: #fff;
-  overflow: hidden;
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+    z-index: 100;
+
+    &.active {
+      position: absolute;
+      top: 28px;
+      right: 54px;
+    }
+  }
 `
 
 const Nav = () => {
-  return (
-    <>
-      <nav>
-        <NavListStyles>
-          <span className="sideNav">
-            <IconContainer>
-              <button type="button">
-                <FaBars size="26" />
-              </button>
-            </IconContainer>
-          </span>
-          <li>
-            <Link to="/">Projects</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Button outline height="34px">
-              <a href="/" className="btn-link">
-                CV
-              </a>
-            </Button>
-          </li>
-          <li>
-            <IconContainer>
-              <button type="button" style={{ paddingTop: '4px' }}>
-                <FaMoon className="dimmed" size="20" />
-              </button>
-            </IconContainer>
-          </li>
-        </NavListStyles>
-      </nav>
+  const [clicked, setClicked] = useState(false)
 
-      <SideNavStyles>
-        <ul>
-          <li>
-            <Link to="/">Projects</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <a href="/">CV</a>
-          </li>
-        </ul>
-      </SideNavStyles>
-    </>
+  return (
+    <nav>
+      <MenuButton
+        onClick={() => setClicked(!clicked)}
+        className={clicked ? 'active' : ''}
+      >
+        <IconContainer>
+          <button type="button">
+            {clicked ? <FaTimes size="30" /> : <FaBars size="26" />}
+          </button>
+        </IconContainer>
+      </MenuButton>
+      <NavListStyles
+        onClick={() => setClicked(!clicked)}
+        className={clicked ? 'open' : ''}
+      >
+        <li>
+          <Link to="/">Projects</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+          <Button outline height={clicked ? '48px' : '34px'}>
+            <a href="/" className="btn-link">
+              CV
+            </a>
+          </Button>
+        </li>
+        <li>
+          <IconContainer>
+            <button type="button" style={{ paddingTop: '4px' }}>
+              <FaMoon className="dimmed" size="20" />
+            </button>
+          </IconContainer>
+        </li>
+      </NavListStyles>
+    </nav>
   )
 }
 
