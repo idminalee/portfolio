@@ -2,10 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import emailjs from 'emailjs-com'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Button from './Button'
 import * as colour from './styles/constants/colours'
 import * as font from './styles/constants/typography'
 import { FormStyles } from './styles/FormStyles'
+
+AOS.init({
+  duration: 500,
+  easing: 'ease-in-out',
+})
 
 const ContactWrapper = styled.div`
   width: 100%;
@@ -85,7 +92,7 @@ const Contact = () => {
 
   return (
     <ContactWrapper>
-      <ContactStyles>
+      <ContactStyles data-aos="fade-up">
         <h2>Say hello!</h2>
         <p>
           If you prefer email,&nbsp;

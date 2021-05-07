@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import * as colour from './styles/constants/colours'
 import * as font from './styles/constants/typography'
 import { displayFlex } from './styles/mixins/flexbox'
+
+AOS.init({
+  duration: 500,
+  easing: 'ease-in-out',
+})
 
 const AboutWrapper = styled.div`
   width: 100%;
@@ -64,15 +71,21 @@ const About = () => {
   return (
     <AboutWrapper>
       <AboutStyles>
-        <h2>Who is Mina?</h2>
-        <p>
+        <h2 data-aos="fade-up" data-aos-offset="100">
+          Who is Mina?
+        </h2>
+        <p data-aos="fade-up" data-aos-offset="100">
           I am a self-taught front-end web developer Lorem ipsum, dolor sit amet
           consectetur adipisicing elit. Repellendus quasi magni est maiores
           temporibus quis, officiis, quaerat esse natus ipsam provident odit
           nisi explicabo neque modi expedita ex corrupti obcaecati!
         </p>
 
-        <TechWrapper>
+        <TechWrapper
+          data-aos="fade-left"
+          data-aos-delay="150"
+          data-aos-offset="100"
+        >
           <TechList>
             <h3>Languages & Tools</h3>
             <ul>

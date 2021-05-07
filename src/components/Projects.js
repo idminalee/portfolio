@@ -1,15 +1,23 @@
 import React from 'react'
 import { MdDesktopMac } from 'react-icons/md'
 import { RiCodeSSlashLine } from 'react-icons/ri'
-
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { IconContainer } from './styles/IconStyles'
 import { CardStyles, TitleGroup, ContentGroup } from './styles/ProjectsStyles'
 import StackStyles from './styles/StackStyles'
 import { data } from '../static/projectData'
 
+AOS.init({
+  offset: 400,
+  duration: 600,
+  once: true,
+  easing: 'ease-in-out',
+})
+
 const renderedProjects = data.map((project) => {
   return (
-    <CardStyles>
+    <CardStyles data-aos="fade-up">
       <TitleGroup>
         <h3 className="title">{project.title}</h3>
         <div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Projects from './Projects'
-import { displayFlex } from './styles/mixins/flexbox'
 
 const MainStyles = styled.main`
   width: 70%;

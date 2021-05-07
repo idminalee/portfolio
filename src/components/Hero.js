@@ -1,9 +1,16 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { HiOutlineChevronDoubleDown } from 'react-icons/hi'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import * as colour from './styles/constants/colours'
 import { FONT_16, FONT_36 } from './styles/constants/typography'
 import { displayFlex } from './styles/mixins/flexbox'
+
+AOS.init({
+  duration: 500,
+  easing: 'ease-in-out',
+})
 
 const pulse = keyframes`
   from {
@@ -65,12 +72,12 @@ const Hero = () => {
   return (
     <HeroWrapper>
       <HeroStyles>
-        <div className="spacer"></div>
-        <h2>
-          Hi, I'm Mina. <br /> A <strong>frontend developer</strong> based in
-          London.
+        <div className="spacer" aria-hidden="true"></div>
+        <h2 data-aos="fade-up" data-aos-offset="100">
+          Hi, I'm Mina.
+          <br /> A <strong>frontend developer</strong> based in London.
         </h2>
-        <p>
+        <p data-aos="fade-up" data-aos-delay="150" data-aos-offset="100">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
           officiis quasi fugit? Officiis voluptatibus nihil necessitatibus
           eligendi illum culpa repellat nulla, ea aperiam accusantium adipisci,
