@@ -30,12 +30,13 @@ const MenuButton = styled.span`
 
 const Nav = () => {
   const [clicked, setClicked] = useState(false)
+  const viewportWidth = window.innerWidth < 768
 
   return (
     <NavStyles>
       <MenuButton
         onClick={() => setClicked(!clicked)}
-        className={clicked ? 'active' : ''}
+        className={viewportWidth && clicked ? 'active' : ''}
       >
         <IconContainer>
           <button type="button">
@@ -45,7 +46,7 @@ const Nav = () => {
       </MenuButton>
       <NavListStyles
         onClick={() => setClicked(!clicked)}
-        className={clicked ? 'open' : ''}
+        className={viewportWidth && clicked ? 'open' : ''}
       >
         <li>
           <Link to="/">Projects</Link>
@@ -57,7 +58,7 @@ const Nav = () => {
           <Link to="/contact">Contact</Link>
         </li>
         <li>
-          <Button outline height={clicked ? '48px' : '34px'}>
+          <Button outline height={viewportWidth && clicked ? '48px' : '34px'}>
             <a href="/" className="btn-link">
               CV
             </a>
