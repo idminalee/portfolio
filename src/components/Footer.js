@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
-import { SECONDARY } from './styles/constants/colours'
+import { BACKGROUND, SECONDARY } from './styles/constants/colours'
 import { FONT_12, FONT_SECONDARY } from './styles/constants/typography'
 import { IconContainer } from './styles/IconStyles'
 import { displayFlex } from './styles/mixins/flexbox'
@@ -14,6 +14,7 @@ const FooterStyles = styled.footer`
   width: 100%;
   height: 200px;
   text-align: center;
+  background-color: ${BACKGROUND};
 
   .social-link:not(:last-child) {
     margin-right: 16px;
