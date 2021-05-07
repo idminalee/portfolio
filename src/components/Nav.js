@@ -8,29 +8,12 @@ import { displayFlex } from './styles/mixins/flexbox'
 import { IconContainer } from './styles/IconStyles'
 import Button from './Button'
 
+const NavStyles = styled.nav`
+  ${displayFlex()};
+`
+
 const NavListStyles = styled.ul`
   ${displayFlex('inline-flex')};
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    position: fixed;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    background-color: #fff;
-    transition: height 0.3s ease-out;
-  }
-  &.open {
-    ${displayFlex()};
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: unset;
-    background-color: ${colour.BACKGROUND};
-  }
 
   li {
     margin-right: 40px;
@@ -54,6 +37,16 @@ const NavListStyles = styled.ul`
     }
   }
 
+  li:last-child {
+    margin-right: 24px;
+  }
+
+  li:not(:last-child) {
+    @media screen and (max-width: 768px) {
+      margin-bottom: 32px;
+    }
+  }
+
   .btn-link {
     @media screen and (max-width: 768px) {
       padding: 0 28px;
@@ -61,19 +54,26 @@ const NavListStyles = styled.ul`
     }
   }
 
-  li:last-child {
-    margin-right: 0;
-
-    // TODO: 리스트에서 빼서 메뉴버튼 옆에 배치하기
-    @media screen and (max-width: 768px) {
-      display: none !important;
-    }
+  &.open {
+    ${displayFlex()};
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: unset;
+    background-color: ${colour.BACKGROUND};
   }
 
-  li:not(:last-child) {
-    @media screen and (max-width: 768px) {
-      margin-bottom: 32px;
-    }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: height 0.3s ease-out;
   }
 `
 
@@ -98,7 +98,7 @@ const Nav = () => {
   const [clicked, setClicked] = useState(false)
 
   return (
-    <nav>
+    <NavStyles>
       <MenuButton
         onClick={() => setClicked(!clicked)}
         className={clicked ? 'active' : ''}
@@ -129,15 +129,13 @@ const Nav = () => {
             </a>
           </Button>
         </li>
-        <li>
-          <IconContainer>
-            <button type="button" style={{ paddingTop: '4px' }}>
-              <FaMoon className="dimmed" size="20" />
-            </button>
-          </IconContainer>
-        </li>
       </NavListStyles>
-    </nav>
+      <IconContainer>
+        <button type="button" style={{ paddingTop: '4px' }}>
+          <FaMoon className="dimmed" size="22" />
+        </button>
+      </IconContainer>
+    </NavStyles>
   )
 }
 
