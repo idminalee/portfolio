@@ -25,7 +25,7 @@ const pulse = keyframes`
 const HeroWrapper = styled.div`
   width: 100%;
   margin-bottom: 100px;
-  background-color: ${colour.BACKGROUND};
+  background-color: ${(props) => props.theme.bgColour};
 `
 
 const HeroStyles = styled.section`
@@ -33,12 +33,11 @@ const HeroStyles = styled.section`
   max-width: 70%;
   margin: 0 auto;
   margin-top: 80px;
-  color: ${colour.PRIMARY};
-  background-color: ${colour.BACKGROUND};
+  background-color: ${(props) => props.theme.bgColour};
 
   .spacer {
     height: 20vh;
-    background-color: ${colour.BACKGROUND};
+    background-color: ${(props) => props.theme.bgColour};
   }
 
   h2 {

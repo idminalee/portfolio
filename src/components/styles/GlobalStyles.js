@@ -23,6 +23,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${FONT_PRIMARY};
     line-height: 1;
     letter-spacing: 0.01em;
+    color: ${(props) => props.theme.textColour};
+    background-color: ${(props) => props.theme.subBgColour};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

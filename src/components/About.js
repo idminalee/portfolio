@@ -14,7 +14,7 @@ AOS.init({
 const AboutWrapper = styled.div`
   width: 100%;
   padding-bottom: 180px;
-  background-color: ${colour.BACKGROUND};
+  background-color: ${(props) => props.theme.bgColour};
 `
 
 const AboutStyles = styled.section`

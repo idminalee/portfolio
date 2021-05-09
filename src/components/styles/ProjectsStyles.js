@@ -11,9 +11,9 @@ export const CardStyles = styled.div`
   height: 100%;
   padding: 32px 40px;
   margin-bottom: 80px;
-  color: ${colour.PRIMARY};
+  color: ${(props) => props.theme.textColour};
   border-radius: 8px;
-  background-color: ${colour.BACKGROUND_DARK};
+  background-color: ${(props) => props.theme.cardColour};
 `
 
 export const TitleGroup = styled.div`

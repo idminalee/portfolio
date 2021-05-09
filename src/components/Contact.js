@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import emailjs from 'emailjs-com'
 import AOS from 'aos'
@@ -17,7 +16,7 @@ AOS.init({
 const ContactWrapper = styled.div`
   width: 100%;
   padding-bottom: 180px;
-  background-color: ${colour.BACKGROUND};
+  background-color: ${(props) => props.theme.bgColour};
 `
 
 const ContactStyles = styled.section`

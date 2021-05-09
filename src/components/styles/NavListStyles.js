@@ -17,7 +17,6 @@ export const NavListStyles = styled.ul`
       font-family: ${FONT_SECONDARY};
       font-size: ${FONT_16};
       font-weight: 500;
-      color: ${colour.PRIMARY};
       text-transform: uppercase;
 
       @media screen and (max-width: 768px) {
@@ -62,7 +61,7 @@ export const NavListStyles = styled.ul`
     right: 0;
     bottom: 0;
     overflow: unset;
-    background-color: ${colour.BACKGROUND};
+    background-color: ${(props) => props.theme.bgColour};
   }
 
   @media screen and (max-width: 768px) {
@@ -71,7 +70,6 @@ export const NavListStyles = styled.ul`
     width: 0;
     height: 0;
     overflow: hidden;
-    background-color: #fff;
     transition: height 0.3s ease-out;
   }
 `

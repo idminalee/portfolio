@@ -6,6 +6,7 @@ import { displayFlex } from './styles/mixins/flexbox'
 import { IconContainer } from './styles/IconStyles'
 import { NavListStyles } from './styles/NavListStyles'
 import Button from './Button'
+import { useTheme } from '../context/themeContext'
 
 const NavStyles = styled.nav`
   ${displayFlex()};
@@ -29,6 +30,7 @@ const MenuButton = styled.span`
 `
 
 const Nav = () => {
+  const [, toggleTheme] = useTheme()
   const [clicked, setClicked] = useState(false)
   const viewportWidth = window.innerWidth < 768
 
@@ -65,7 +67,7 @@ const Nav = () => {
           </Button>
         </li>
       </NavListStyles>
-      <IconContainer>
+      <IconContainer onClick={toggleTheme}>
         <button type="button" style={{ paddingTop: '4px' }}>
           <FaMoon className="dimmed" size="22" />
         </button>

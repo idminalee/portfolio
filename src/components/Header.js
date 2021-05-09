@@ -1,10 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import Logo from './Logo'
 import Nav from './Nav'
-import * as colour from './styles/constants/colours'
 import { displayFlex } from './styles/mixins/flexbox'
 
 const HeaderStyles = styled.header`
@@ -15,7 +13,7 @@ const HeaderStyles = styled.header`
   width: 100%;
   height: 90px;
   padding: 0 56px;
-  background-color: ${colour.BACKGROUND};
+  background-color: ${(props) => props.theme.bgColour};
   z-index: 10;
   ${(props) =>
     props.scroll &&
