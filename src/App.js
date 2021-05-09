@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { IconContext } from 'react-icons'
+import { ThemeProvider } from './context/themeContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Main from './components/Main'
@@ -11,7 +12,7 @@ import About from './components/About'
 
 const App = () => {
   return (
-    <>
+    <ThemeProvider>
       <GlobalStyles />
       <IconContext.Provider value={{ className: 'icon' }}>
         <Header />
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/about" component={About} />
         <Footer />
       </IconContext.Provider>
-    </>
+    </ThemeProvider>
   )
 }
 
