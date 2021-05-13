@@ -7,6 +7,7 @@ import { PRIMARY_LIGHT } from './styles/constants/colours'
 const MainStyles = styled.main`
   width: 70%;
   margin: 0 auto;
+  margin-bottom: 240px;
   ${(props) =>
     props.isDarkMode &&
     css`

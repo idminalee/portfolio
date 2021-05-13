@@ -1,16 +1,9 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { HiOutlineChevronDoubleDown } from 'react-icons/hi'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import * as colour from './styles/constants/colours'
 import { FONT_16, FONT_36 } from './styles/constants/typography'
 import { displayFlex } from './styles/mixins/flexbox'
-
-AOS.init({
-  duration: 500,
-  easing: 'ease-in-out',
-})
 
 const pulse = keyframes`
   from {

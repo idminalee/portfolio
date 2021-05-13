@@ -1,15 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import * as colour from './styles/constants/colours'
 import * as font from './styles/constants/typography'
 import { displayFlex } from './styles/mixins/flexbox'
-
-AOS.init({
-  duration: 500,
-  easing: 'ease-in-out',
-})
 
 const AboutWrapper = styled.div`
   width: 100%;
