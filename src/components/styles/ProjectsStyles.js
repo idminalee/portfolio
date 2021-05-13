@@ -14,6 +14,10 @@ export const CardStyles = styled.div`
   color: ${(props) => props.theme.textColour};
   border-radius: 8px;
   background-color: ${(props) => props.theme.cardColour};
+
+  @media screen and (max-width: 414px) {
+    padding: 26px 24px;
+  }
 `
 
 export const TitleGroup = styled.div`
@@ -21,10 +25,19 @@ export const TitleGroup = styled.div`
   width: 100%;
   margin-bottom: 32px;
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .title {
     font-size: ${font.FONT_24};
     font-weight: 700;
     color: ${colour.BLUE};
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 16px;
+    }
   }
 
   .link-item:not(:last-child) {
@@ -40,6 +53,10 @@ export const ContentGroup = styled.div`
   .content-right {
     flex: 1;
     min-width: 300px;
+
+    @media screen and (max-width: 345px) {
+      min-width: unset;
+    }
   }
 
   .demo-gif {
@@ -58,6 +75,9 @@ export const ContentGroup = styled.div`
     margin-bottom: 12px;
     font-size: ${font.FONT_18};
     line-height: 1.5;
-    /* word-wrap: break-word; */
+
+    @media screen and (max-width: 768px) {
+      font-size: ${font.FONT_16};
+    }
   }
 `

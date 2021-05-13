@@ -20,6 +20,10 @@ const HeaderStyles = styled.header`
     css`
       box-shadow: 0px 3px 16px 0px rgb(0, 0, 0, 0.03);
     `}
+
+  @media screen and (max-width: 768px) {
+    padding: 0 30px;
+  }
 `
 
 const Header = () => {

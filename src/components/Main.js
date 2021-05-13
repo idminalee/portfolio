@@ -13,6 +13,14 @@ const MainStyles = styled.main`
     css`
       background-color: ${PRIMARY_LIGHT};
     `}
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 414px) {
+    width: 90%;
+  }
 `
 
 const Main = () => {

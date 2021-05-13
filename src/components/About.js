@@ -16,6 +16,10 @@ const AboutStyles = styled.section`
   padding-top: 200px;
   margin: 0 auto;
 
+  @media screen and (max-width: 768px) {
+    max-width: 80%;
+  }
+
   h2 {
     margin-bottom: 28px;
     font-size: ${font.FONT_36};

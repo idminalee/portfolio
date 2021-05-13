@@ -28,6 +28,10 @@ const HeroStyles = styled.section`
   margin-top: 80px;
   background-color: ${(props) => props.theme.bgColour};
 
+  @media screen and (max-width: 768px) {
+    max-width: 80%;
+  }
+
   .spacer {
     height: 20vh;
     background-color: ${(props) => props.theme.bgColour};
