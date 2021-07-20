@@ -1,11 +1,12 @@
-import { useState, createContext, useContext, useCallback } from 'react'
+import { useState, createContext, useContext } from 'react'
 import { ThemeProvider as StyleProvider } from 'styled-components'
 import { darkTheme, lightTheme } from '../components/styles/constants/theme'
 
 const ThemeContext = createContext({})
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const localTheme = window.localStorage.getItem('isDarkMode' || 'false')
+  const [isDarkMode, setIsDarkMode] = useState(JSON.parse(localTheme))
   const themeObject = isDarkMode ? darkTheme : lightTheme
 
   return (
@@ -19,9 +20,15 @@ export const useTheme = () => {
   const context = useContext(ThemeContext)
   const { isDarkMode, setIsDarkMode } = context
 
-  const toggleTheme = useCallback(() => {
-    setIsDarkMode(!isDarkMode)
-  }, [isDarkMode])
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      setIsDarkMode(false)
+      window.localStorage.setItem('isDarkMode', 'false')
+    } else {
+      setIsDarkMode(true)
+      window.localStorage.setItem('isDarkMode', 'true')
+    }
+  }
 
   return [isDarkMode, toggleTheme]
 }
